@@ -1,0 +1,296 @@
+
+body {
+    margin: 0;
+    height: 200vh; 
+    font-family: 'Josefin Slab';
+}
+
+.onn {
+    background: linear-gradient(to bottom, #D4FFFD, white);
+    height: 100px;
+}
+
+.rand {
+    width: 100%;
+    height: 780px;
+    background-image: url('img/maya.png');
+    background-size: cover;  
+    background-position: center top; 
+    background-repeat: no-repeat;
+}
+.moonu {
+    position: absolute;
+    bottom: 550px; 
+    left: 0;
+    width: 100%;
+    height: 150px;
+    transition: bottom 0.5s ease-in-out; 
+}
+.naalu {
+    position: absolute;
+    bottom: -650px; 
+    left: 0;
+    width: 100%;
+    height: 450px;
+    
+    background:linear-gradient(to bottom, white, #e3d1bb); 
+    transition: bottom 0.5s ease-in-out; 
+}
+.anju {
+    position: absolute;
+    bottom: -1230px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background:linear-gradient(to bottom,#e3d1bb, white);
+    transition: bottom 0.5s ease-in-out; 
+}
+
+.nav{
+    
+    font-size: 20px;
+    margin-left: 700px;padding-top: 20px;
+    
+}
+
+#ns{
+    margin-right: 80px;
+    text-decoration: none;
+    color: #000;
+}
+.links{
+    padding-top: 80px;
+}
+#ll{
+    margin-right: 30px;
+}
+#regbtn{
+    font-weight: bold;
+    color: white;
+    background: radial-gradient(#944510,#723a02);
+    padding: 12px;
+    font-size: medium;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 8px;
+
+}
+.aaru {
+    position: absolute;
+    bottom: -1800px;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    transition: bottom 0.5s ease-in-out;
+}
+
+.reg{
+    margin-top: 50px;
+    margin-left: 400px;
+    height:800px;
+    border: 3px solid black;
+    border-radius: 8%;
+    width: 40%;
+    height: auto;
+    padding-left:3%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: larger;
+    padding-right: 2%;
+    
+}
+#bt1 {
+    background: radial-gradient(#944510,#723a02);
+    border: none;
+    color: rgb(15, 14, 14);
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+#bt1:hover {
+    background: radial-gradient(#944510,#a26a32);
+}
+
+#bt1,#bt2{
+    font-size: medium;
+    width: 46%;
+    padding-right: 5%;
+}
+
+#det{
+    font-size: large;
+    background-color: #171a21;
+    border: none;
+    border-bottom: 2px solid white;
+    color: black;
+    
+}
+#category,#items{
+    background-color: #171a21;
+    border: none;
+    border-bottom: 2px solid white;
+    color: #505153;
+    font-size: large;
+    width:200px;
+}
+#talk1{
+    font-size:55px;
+    color: black;
+    padding-top: 300px;
+    margin-left: 100px;
+}
+#talk2{
+    font-size:18px;
+    word-spacing: 2px;
+    letter-spacing: .2px;
+    color: black;
+    margin-top: -50px;
+    margin-left: 100px;
+}
+#em{
+    color: black;
+    font-size: 18px;
+    margin-left: 140px;
+    margin-top: -16px;
+}
+#ph{
+    color: black;
+    font-size: 18px;
+    margin-left: 140px;
+    margin-top: -30px;
+}
+#formm{
+    margin-left: 500px;
+    margin-top: -260px;
+    font-size: 16px;
+    color:black;
+}
+#sub{
+    margin-top: -30px;
+}
+#sub1{
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: radial-gradient(#944510,#723a02);
+    border:1px solid green;
+    color:#171a21;
+    font-size: 20px;
+    border-radius: 3px;
+    margin-top: 30px;
+    align-content: center;text-align: center;
+}
+#sub1:hover{
+    background: radial-gradient(#944510,#723a02);
+    color:#01c38d;
+}
+#det2{
+    width: 430px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #171a21;
+    border: none;
+    border-bottom: 2px solid white;
+    margin-right: 5px;
+    color: black;
+}
+#sub{
+    width: 870px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #171a21;
+    border: none;
+    border-bottom: 2px solid white;
+    margin-right: 5px;
+    margin-top: 0px;
+    color: black;
+
+}
+#ft,#ft2{
+    font-size: larger;
+    color: #000;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product p {
+    font-weight: bold;
+    color: #27ae60;
+}
+
+.product button {
+    background: radial-gradient(#944510,#723a02);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.product button:hover {
+    background: #219150;
+}
+.ezhu {
+    position: absolute;
+    bottom: -3200px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background:linear-gradient(to bottom,#e3d1bb, white);
+    transition: bottom 0.5s ease-in-out; 
+}
+.ettu {
+    position: absolute;
+    bottom: -4500px;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    background:linear-gradient(to bottom,#e3d1bb, white);
+    transition: bottom 0.5s ease-in-out; 
+}
+
+.map {
+    position: absolute;
+    bottom: -2500px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    background:linear-gradient(to bottom,#e3d1bb, white);
+    transition: bottom 0.5s ease-in-out; 
+}

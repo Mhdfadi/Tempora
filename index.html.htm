@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<script>
+    window.addEventListener("scroll", function () {
+        let rand = document.querySelector(".rand");
+        let scrollY = window.scrollY;
+        rand.style.backgroundPosition = `center ${scrollY * -0.5 + "px"}`;
+    });
+</script>
+<body>
+    <div class="onn">
+        <div class="nav">
+            <a href="#anju" id="ns">ABOUT</a>
+            <a href="#aaru" id="ns">REGISTER</a>
+            <a href="#map" id="ns">MAP</a>
+            <a href="#ezhu" id="ns">MERCH</a>
+            <a href="#ettu" id="ns">CONTACT</a>
+        </div>
+    </div>
+    <div class="rand">
+        <center><h2 style="color: beige;font-weight: lighter;padding-top: 650px;">Come join us at camp grounds to take part in events, hunts, prizes, and<br>a whole lot of fun!</h2></center>
+        <center><h2 style="color: white;">THE EVENT GOES ON!<br>11-02-2025 to 14-02-2025</h2></center>
+    </div>
+    <div class="moonu">
+        <center>
+            <h1 style="font-size: 80px;">TEMPORA!</h1>
+            <h2 style="font-size: 35px; margin-top: -50px;font-weight: lighter;">Throughout time, cultures, and beyond!</h2>
+        </center>
+    </div>
+    <div class="naalu">
+        <center>
+            <div class="links">
+                <a href="#lt" id="ll"><img src="img/lb.png" width="250px" height="250px"></a>
+                <a href="#his" id="ll"><img src="img/hb.png" width="250px" height="250px"></a>
+                <a href="#art" id="ll"><img src="img/ab.png" width="250px" height="250px"></a>
+                <a href="#sci" id="ll"><img src="img/sb.png" width="250px" height="250px"></a>
+            </div>
+            <br><br>
+            <a href="#aaru"><button id="regbtn">REGISTER FOR AN EVENT!</button></a>
+        </center>
+    </div>
+    <div class="anju" id="anju">
+        <div style="padding-left: 30px;">
+            <div id="lt"><h2 style="font-size: xx-large;">Literature: The Voice of Civilization</h2>
+            <p style="font-size: larger;">Literature captures the essence of culture, preserving ideas, beliefs, and emotions across time. It shapes identities, challenges norms, and influences societal change.<br><br>"Words transcend time—exploring how literature shapes and preserves cultural identity"</p>
+            <br></div>
+            <div id="his"><h2 style="font-size: xx-large;">History: The Blueprint of Society</h2>
+            <p style="font-size: larger;">History reveals the rise and fall of civilizations, shaping the present through past lessons. Understanding historical events helps us see cultural evolution and societal transformations.<br><br>"Unraveling the past to understand the present—history as the cultural backbone of society"</p>
+            <br></div>
+            <div id="art"><h2 style="font-size: xx-large;">Arts: The Language of Creativity</h2>
+            <p style="font-size: larger;">Art reflects the soul of a culture, capturing its struggles, triumphs, and emotions. Through paintings, music, and performances, it bridges the past and future.<br><br>"Culture in color and form—how art captures the essence of human expression"</p>
+            <br></div>
+            <div id="sci"><h2 style="font-size: xx-large;">Sciences: The Innovation of Culture</h2>
+            <p style="font-size: larger;">Science and culture are deeply intertwined, with discoveries shaped by societal needs and ethical values. Innovations influence how we live, think, and progress.<br><br>"Where discovery meets culture—exploring how science transforms and is shaped by society"</p>
+        </div></div>
+    </div>
+    <div class="aaru" id="aaru">
+        <div class="reg">
+            <form id="myForm">
+                <label for="hell">
+                <div>Name: <input type="text" name="MyName" id="det" placeholder="Thangham Hill"></label>
+                
+                <label for="mail">
+                Reg ID: <input type="text" name="RegID" id="det" placeholder="1241000"></div><br>
+                <div>Phone No: <input type="text" name="PhoneNo" id="det" placeholder="9876543210">
+                Email: <input type="email" name="Email" id="det" placeholder="thanghamhill@gmail.com"></div><br></label>           
+    
+                <div><label for="category">Category:</label>
+                    <select name="Category" id="category" onchange="updateOptions()">
+                        <option value="">Select</option>
+                        <option value="Literature">Literature</option>
+                        <option value="Science">Science</option>
+                        <option value="Arts">Arts</option>
+                        <option value="History">History</option>
+                    </select>
+                
+    
+                <label for="items">Item:</label>
+                    <select name="Item" id="items">
+                        <option value="">Select</option>
+                    </select>
+                </div><br>
+    
+                <script>
+                    function updateOptions() {
+                        var category = document.getElementById("category").value;
+                        var items = document.getElementById("items");
+                
+                        items.innerHTML = "<option value=''>Select</option>";
+                
+                        var options = {
+                            Literature: ["Elocution", "Essay Writing", "Debate", "Quiz"],
+                            Science: ["Essay Writing", "Quiz"],
+                            History: ["Quiz", "Essay Writing"],
+                            Arts: ["Poster Making", "Sketching", "Reel Making", "Monoact"]
+                        };
+                
+                        if (category in options) {
+                            options[category].forEach(function(item) {
+                                var option = document.createElement("option");
+                                option.value = item; 
+                                option.textContent = item;
+                                items.appendChild(option);
+                            });
+                        }
+                    }
+                
+                    document.getElementById("myForm").addEventListener("submit", function(event) {
+                        event.preventDefault();
+                
+                        var formData = new FormData(this);
+                
+                        fetch("backend.php", {
+                            method: "POST",
+                            body: formData
+                        }).then(response => response.text())
+                        .then(data => {
+                            console.log("Response from backend:", data);
+                            alert("Form Submitted Successfully!");
+                            document.getElementById("myForm").reset();
+                        }).catch(error => console.error("Error:", error));
+                    });
+                </script>
+    
+                <div><input type="submit" value="Submit" id="bt1">
+                <input type="reset" value="Reset" id="bt1"></div>
+            </form>
+        </div>
+    </div>
+    <div class="map" id="map">
+        <div style="margin-left: 100px; display: flex;"><div><img src="img/map.png" width="500px"></div>
+    <div style="margin-right: 100px;"><h2 style="font-size: xx-large;">Navigate the Past, Experience the Present—Your Guide to Tempora’s Cultural Journey</h2><p style="font-size:x-large;">The Tempora event map serves as an interactive guide, showcasing different events, sessions, and time schedules across the four categories—Literature, History, Arts, and Sciences. It allows visitors to navigate through cultural discussions, exhibitions, and activities seamlessly, ensuring they don’t miss key moments. Whether exploring historical debates, artistic showcases, scientific talks, or literary discussions, the map provides a structured yet immersive experience of cultural evolution.
+        Navigate the Past, Experience the Present—Your Guide to Tempora’s Cultural Journey</h2><p style="font-size:x-large;">The Tempora event map serves as an interactive guide, showcasing different events, sessions, and time schedules across the four categories—Literature, History, Arts, and Sciences. It allows visitors to navigate through cultural discussions, exhibitions, and activities seamlessly, ensuring they don’t miss key moments. Whether exploring historical debates, artistic showcases, scientific talks, or literary discussions, the map provides a structured yet immersive experience of cultural evolution.
+            the map provides a structured yet immersive experience of cultural evolution.the map provides a structured yet immersive experience of cultural evolution.
+    </p></div></div>
+    </div>
+    <div class="ezhu" id="ezhu">
+        <section class="products" style="padding-top: 100px;">
+            <div class="product" onclick="addToCart('T-Shirt')">
+                <img src="img/1.webp" alt="T-Shirt">
+                <h3>Cool T-Shirt</h3>
+                <p>$20</p>
+                <button>Add to Cart</button>
+            </div>
+    
+            <div class="product" onclick="addToCart('Hoodie')">
+                <img src="img/2.jpeg" alt="Hoodie">
+                <h3>Cozy Hoodie</h3>
+                <p>$40</p>
+                <button>Add to Cart</button>
+            </div>
+    
+            <div class="product" onclick="addToCart('Mug')">
+                <img src="img/4.webp" alt="Mug">
+                <h3>Custom Mug</h3>
+                <p>$15</p>
+                <button>Add to Cart</button>
+            </div>
+    
+            <div class="product" onclick="addToCart('Cap')">
+                <img src="img/6.webp" alt="Cap">
+                <h3>Stylish Cap</h3>
+                <p>$18</p>
+                <button>Add to Cart</button>
+            </div>
+    
+            <div class="product" onclick="addToCart('Sticker Pack')">
+                <img src="img/7.jpeg" alt="Stickers">
+                <h3>Sticker Pack</h3>
+                <p>$10</p>
+                <button>Add to Cart</button>
+            </div>
+    
+            <div class="product" onclick="addToCart('Phone Case')">
+                <img src="img/8.webp" alt="Phone Case">
+                <h3>Phone Case</h3>
+                <p>$25</p>
+                <button>Add to Cart</button>
+            </div>
+        </section>
+    </div>
+    <div class="ettu" id="ettu">
+        <div id="sec4">
+            <p id="talk1">Let's talk</p>
+            <h3 id="talk2">Ask us anything or just say hi...</h3>
+            <img src="Img/icons8-phone-50.png" style="width:30px;height: 30px;margin-left: 100px;margin-top: 40px;"><p id="ph"> 9876543210</p><br>
+            <img src="Img/icons8-email-48.png" style="width:30px;height: 30px;margin-left: 100px;margin-top:-20px;float: left;">
+            <p id="em"> Tempora@gmail.com</p>
+            <div id="formm">
+            <form action="backend.php">
+                <pre id="ft">Name                                      Email</pre>
+                <input type="text" name="Name" id="det2" placeholder="Joe do">
+                <input type="email" name="Email" id="det2" placeholder="Joedo@gmail.com">
+                <p id="ft2" style="font-weight: 600;">Message</p>
+                <div><textarea id="sub" name="sub" style="height:100px" placeholder="Hi there..."></textarea></div>
+                <button id="sub1">submit <img src="Img/arrow.png" style="width: 17px;height: 17px;padding-left: 5px;"></button>
+            </form>
+            </div>
+
+    </div>
+</body>
+</html>
